@@ -10,6 +10,14 @@ public class Album {
 
     private List<Song> songList;
 
+    public String getArtistName() {
+        return artistName;
+    }
+
+    public List<Song> getSongList() {
+        return songList;
+    }
+
     public Album(String albumName, String artistName) {
         this.albumName = albumName;
         this.artistName = artistName;
@@ -25,7 +33,7 @@ public class Album {
         return false;
     }
 
-    public String addNewSongToTitle(String title, double duration){
+    public String addNewSongToAlbum(String title, double duration){
         //check if already added:
         if(findSongByTitle(title)){
             return "Song is already added";
@@ -37,7 +45,7 @@ public class Album {
         return "Song has been added successfully";
     }
 
-    public String addSongToPlayList(int songNo, LinkedList<Song>playList){
+    public String addSongToPlayList(int songNo, ArrayList<Song>playList){
         //first we will calculate the index of the song with the help of songNo;
         int idx = songNo-1;
 
@@ -54,7 +62,7 @@ public class Album {
         }
     }
 
-    public String addSongToPlayList(String title, LinkedList<Song>playList){
+    public String addSongToPlayList(String title, ArrayList<Song>playList){
 
        for(Song song : songList){
            if(song.getTitle().equals(title)){
